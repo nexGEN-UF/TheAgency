@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="Project100">
     <head>
         <!-- Required meta tags always come first -->
         <meta charset="utf-8">
@@ -16,12 +16,13 @@
         <link rel="stylesheet" href="/css/socials.css" />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700" type="text/css">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
         <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     </head>
 
-    <body data-spy="scroll" data-target="#collapseNav" data-offset="65">
+    <body ng-controller="MainController" data-spy="scroll" data-target="#collapseNav" data-offset="65">
         <header>
             <nav id="nav" class="navbar navbar-dark navbar-fixed-top">
                 <div class="container-fluid">
@@ -200,8 +201,7 @@
             <section id="mavy" class="bg-mavy">
 
                 <div class="container-fluid">
-                  <h2 style="text-align: center; margin-top: 0px; padding-top:45px; margin-bottom: 0px; font-family: Lato;
-    font-weight: bold; text-transform: uppercase; font-size: 3rem;">The Research</h2>
+                  <h2 style= "text-align: center; margin-top: 0px; padding-top:45px; margin-bottom: 0px; font-family: Lato; font-weight: bold; text-transform: uppercase; font-size: 3rem;" >The Research</h2>
                     <div class="inner">
                         <div class="row">
                             <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-lg-8 col-lg-offset-2 text-center">
@@ -227,7 +227,7 @@
 
             <section id="clients" class="bg-gray text-center" style="display: block; position: relative;">
                 <div>
-                    <h2 style="margin-top: 0px; padding-top:45px; margin-bottom: 0px; font-family: Lato;
+                    <h2 style= "margin-top: 0px; padding-top:45px; margin-bottom: 0px; font-family: Lato;
     font-weight: bold; text-transform: uppercase; font-size: 3rem;">The Clients</h2>
                     <div class="container-fluid">
                         <!--FIRST ROW-->
@@ -1048,226 +1048,16 @@
                                                     <div class="container-fluid">
                                                         <div class="row" style="padding-left:12px; margin-top: 10px;">
 
-
-                                                             <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2 animate fadeIn team-box">
-                                                                <figure>
-                                                                    <img src="/img/SashaS-min.jpg" />
-                                                                    <div class="member-details light">
-                                                                        <h5 style="text-transform:none">Sasha Sakay</h5>
-                                                                        <h3 style="text-transform:none">Production Manager</h3>
-                                                                        <div class="strip"></div>
-                                                                    </div>
-                                                                </figure>
-                                                            </div>
-
-                                                            <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2 animate fadeIn team-box">
-                                                                <figure>
-                                                                    <img src="/img/AlexD-min.jpg" />
-                                                                    <div class="member-details light">
-                                                                        <h5 style="text-transform:none">Alexander Durán </h5>
-                                                                        <h3 style="text-transform:none">Visual Supervisor</h3>
-                                                                        <div class="strip"></div>
-                                                                    </div>
-                                                                </figure>
-                                                            </div>
-
-                                                             <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2 animate fadeIn team-box">
-                                                                <figure>
-                                                                    <img src="/img/AllisonS-min.jpg"/>
-                                                                    <div class="member-details light">
-                                                                        <h5 style="text-transform:none">Allison Schaper</h5>
-                                                                        <h3 style="text-transform:none">Production Coordinator</h3>
-                                                                        <div class="strip"></div>
-                                                                    </div>
-                                                                </figure>
-                                                            </div>
-
-                                                             <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2 animate fadeIn team-box">
-                                                                <figure>
-                                                                    <img src="/img/Lindsay%20Narbeth.jpg"/>
-                                                                    <div class="member-details light">
-                                                                        <h5 style="text-transform:none">Lindsay Narbeth</h5>
-                                                                        <h3 style="text-transform:none">Videographer</h3>
-                                                                        <div class="strip"></div>
-                                                                    </div>
-                                                                </figure>
-																													</div>
-
-                                                            <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2 animate fadeIn team-box">
-                                                            <figure>
-                                                                <img src="/img/CobyS-min.jpg" />
+                                                            <div ng-repeat="student in students" class="col-xs-6 col-sm-3 col-md-2 col-lg-2 animate fadeIn team-box">
+                                                              <figure>
+                                                                <img src="{{ student.head_shot }}" />
                                                                 <div class="member-details light">
-                                                                    <h5 style="text-transform:none">Coby Sanchez</h5>
-                                                                    <h3 style="text-transform:none">Videographer</h3>
-                                                                    <div class="strip"></div>
+                                                                  <h5 style="text-transform:none"> {{ student.name }} </h5>
+                                                                  <h3 style="text-transform:none"> {{ student.positions[0] }} </h3>
+                                                                  <div class="strip"></div>
                                                                 </div>
-                                                            </figure>
-                                                        </div>
-
-                                                             <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2 animate fadeIn team-box">
-                                                            <figure>
-                                                                <img src="/img/AngeloD-min.jpg"/>
-                                                                <div class="member-details light">
-                                                                    <h5 style="text-transform:none">Angelo Dominguez</h5>
-                                                                    <h3 style="text-transform:none">Videographer</h3>
-                                                                    <div class="strip"></div>
-                                                                </div>
-                                                            </figure>
-                                                        </div>
-
-                                                             <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2 animate fadeIn team-box">
-                                                                <figure>
-                                                                   <img src="/img/Merret%20Fay.jpg"/>
-                                                                        <div class="member-details light">
-                                                                            <h5 style="text-transform:none">Merret Fay</h5>
-                                                                            <h3 style="text-transform:none">Photographer</h3>
-                                                                            <div class="strip"></div>
-                                                                        </div>
-                                                                </figure>
+                                                              </figure>
                                                             </div>
-
-                                                              <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2 animate fadeIn team-box">
-                                                        <figure>
-                                                            <img src="/img/KaylaT-min.jpg" />
-                                                            <div class="member-details light">
-                                                                <h5 style="text-transform:none">Kayla Tuckerman</h5>
-                                                                <h3 style="text-transform:none">Photographer</h3>
-                                                                <div class="strip"></div>
-                                                            </div>
-                                                        </figure>
-                                                    </div>
-
-                                                               <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2 animate fadeIn team-box">
-                                                                <figure>
-                                                                    <img src="/img/DanaH-min.jpg" />
-                                                                    <div class="member-details light">
-                                                                        <h5 style="text-transform:none">Dana Hatchett</h5>
-                                                                        <h3 style="text-transform:none">Graphic Designer</h3>
-                                                                        <div class="strip"></div>
-                                                                    </div>
-                                                                </figure>
-                                                            </div>
-
-                                                            <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2 animate fadeIn team-box">
-                                                                <figure>
-                                                                    <img src="/img/DeniseA-min.jpg" />
-                                                                    <div class="member-details light">
-                                                                        <h5 style="text-transform:none">Denise Akerman</h5>
-                                                                        <h3 style="text-transform:none">Graphic Designer</h3>
-                                                                        <div class="strip"></div>
-                                                                    </div>
-                                                                </figure>
-                                                            </div>
-
-
-                                                            <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2 animate fadeIn team-box">
-                                                                <figure>
-                                                                    <img src="/img/MeganC-min.jpg" />
-                                                                    <div class="member-details light">
-                                                                        <h5 style="text-transform:none">Megan Carney</h5>
-                                                                        <h3 style="text-transform:none">Graphic Designer</h3>
-                                                                        <div class="strip"></div>
-                                                                    </div>
-                                                                </figure>
-                                                            </div>
-
-                                                              <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2 animate fadeIn team-box">
-                                                                <figure>
-                                                                    <img src="/img/RachelL-min.jpg" />
-                                                                    <div class="member-details light">
-                                                                        <h5 style="text-transform:none">Rachel Lescano</h5>
-                                                                        <h3 style="text-transform:none">Graphic Designer</h3>
-                                                                        <div class="strip"></div>
-                                                                    </div>
-                                                                </figure>
-                                                            </div>
-
-                                                              <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2 animate fadeIn team-box">
-                                                                <figure>
-                                                                    <img src="/img/SabrinaS-min-min.jpg"/>
-                                                                    <div class="member-details light">
-                                                                        <h5 style="text-transform:none">Sabrina Siegal</h5>
-                                                                        <h3 style="text-transform:none">Graphic Designer</h3>
-                                                                        <div class="strip"></div>
-                                                                    </div>
-                                                                </figure>
-                                                            </div>
-
-                                                            <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2 animate fadeIn team-box">
-                                                                <figure>
-                                                                    <img src="/img/CarolineJ-min.jpg" />
-                                                                    <div class="member-details light">
-                                                                        <h5 style="text-transform:none">Caroline Jinks</h5>
-                                                                        <h3 style="text-transform:none">Graphic Designer</h3>
-                                                                        <div class="strip"></div>
-                                                                    </div>
-                                                                </figure>
-                                                            </div>
-
-                                                             <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2 animate fadeIn team-box">
-                                                                <figure>
-                                                                    <img src="/img/Jenna%20Bray.jpg" />
-                                                                    <div class="member-details light">
-                                                                        <h5 style="text-transform:none">Jenna Bray</h5>
-                                                                        <h3 style="text-transform:none">Graphic Designer</h3>
-                                                                        <div class="strip"></div>
-                                                                    </div>
-                                                                </figure>
-                                                            </div>
-
-                                                            <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2 animate fadeIn team-box">
-                                                                <figure>
-                                                                    <img src="/img/EliseR-min.jpg" />
-                                                                    <div class="member-details light">
-                                                                        <h5 style="text-transform:none">Elise Rose</h5>
-                                                                        <h3 style="text-transform:none">Senior Copywriter</h3>
-                                                                        <div class="strip"></div>
-                                                                    </div>
-                                                                </figure>
-                                                            </div>
-                                                            <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2 animate fadeIn team-box">
-                                                                <figure>
-                                                                    <img src="/img/AmandaC-min.jpg" />
-                                                                    <div class="member-details light">
-                                                                        <h5 style="text-transform:none">Amanda Churchill</h5>
-                                                                        <h3 style="text-transform:none">Copywriter</h3>
-                                                                        <div class="strip"></div>
-                                                                    </div>
-                                                                </figure>
-                                                            </div>
-
-                                                            <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2 animate fadeIn team-box">
-                                                            <figure>
-                                                                <img src="/img/JocelynG-min.jpg" />
-                                                                <div class="member-details light">
-                                                                    <h5 style="text-transform:none">Jocelyn Gordon</h5>
-                                                                    <h3 style="text-transform:none">Copywriter</h3>
-                                                                    <div class="strip"></div>
-                                                                </div>
-                                                            </figure>
-                                                        </div>
-
-                                                            <div class="col-xs-6 col-sm-3 col-md-2 col-md-offset-4 col-lg-2  animate fadeIn team-box">
-                                                            <figure>
-                                                                <img src="/img/MonicaH-min.jpg" />
-                                                                <div class="member-details light">
-                                                                    <h5 style="text-transform:none">Monica Humphries</h5>
-                                                                    <h3 style="text-transform:none">Copywriter</h3>
-                                                                    <div class="strip"></div>
-                                                                </div>
-                                                            </figure>
-                                                        </div>
-
-																													<div class="col-xs-6 col-sm-3 col-md-2 col-lg-2 animate fadeIn team-box">
-                                                            <figure>
-                                                                <img src="/img/Ephraim%20Rudolph.jpg" />
-                                                                <div class="member-details light">
-                                                                    <h5 style="text-transform:none">Ephraim Rudolph</h5>
-                                                                    <h3 style="text-transform:none">Copywriter</h3>
-                                                                    <div class="strip"></div>
-                                                                </div>
-                                                            </figure>
-                                                        </div>
 
                                                         </div>
                                                     </div>
@@ -2053,6 +1843,9 @@ font-weight: bold; text-transform: uppercase; font-size: 3rem;">The Hype</h2>-->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
         <script src="/js/bootstrap.min.js"></script>
 				<script src="/js/analytics.js"></script>
+        <script src="js/app.js"></script>
+        <script src='js/controllers/main.controller.js'></script>
+        <script src='js/services/student.service.js'></script>
         <script>
             jQuery(document).ready(function(){
                 $("#accordion").accordion();
